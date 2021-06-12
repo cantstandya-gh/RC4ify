@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using RC4Cryptography;
+using System.Security.Cryptography;
 
 namespace RC4ify
 {
@@ -99,7 +100,7 @@ namespace RC4ify
             {
                 key_phrase = textBox3.Text;
             }
-            byte[] data = Encoding.UTF8.GetBytes(Globals.filePath);
+            byte[] data = File.ReadAllBytes(Globals.filePath);
             byte[] key = Encoding.UTF8.GetBytes(key_phrase);
             byte[] encrypted_data = RC4.Apply(data, key);
             System.IO.File.WriteAllBytes(Globals.OUTPUTPATH, encrypted_data);
@@ -119,7 +120,7 @@ namespace RC4ify
             {
                 key_phrase = textBox3.Text;
             }
-            byte[] data = Encoding.UTF8.GetBytes(Globals.filePath);
+            byte[] data = File.ReadAllBytes(Globals.filePath);
             byte[] key = Encoding.UTF8.GetBytes(key_phrase);
             byte[] decrypted_data = RC4.Apply(data, key);
             System.IO.File.WriteAllBytes(Globals.OUTPUTPATH, decrypted_data);
