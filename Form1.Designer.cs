@@ -129,6 +129,7 @@ namespace RC4ify
             this.button3.TabIndex = 7;
             this.button3.Text = "Encrypt";
             this.button3.UseVisualStyleBackColor = false;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // label4
             // 
@@ -173,6 +174,7 @@ namespace RC4ify
             this.button4.TabIndex = 11;
             this.button4.Text = "Decrypt";
             this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // comboBox1
             // 

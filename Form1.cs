@@ -62,6 +62,16 @@ namespace RC4ify
             }
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Encrypt();
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            Decrypt();
+        }
+
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             if (checkBox1.Checked == true)
