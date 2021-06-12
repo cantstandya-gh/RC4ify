@@ -9,7 +9,6 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using RC4Cryptography;
-using System.Security.Cryptography;
 
 namespace RC4ify
 {
