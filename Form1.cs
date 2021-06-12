@@ -89,7 +89,7 @@ namespace RC4ify
         public void Encrypt()
         {
             Globals.filePath = textBox1.Text;
-            Globals.OUTPUTPATH = textBox3.Text;
+            Globals.OUTPUTPATH = textBox2.Text;
             string key_phrase = "";
             if (checkBox1.Checked == true)
             {
@@ -109,7 +109,7 @@ namespace RC4ify
         public void Decrypt()
         {
             Globals.filePath = textBox1.Text;
-            Globals.OUTPUTPATH = textBox3.Text;
+            Globals.OUTPUTPATH = textBox2.Text;
             string key_phrase = "";
             if (checkBox1.Checked == true)
             {
