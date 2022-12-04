@@ -49,6 +49,15 @@ namespace RC4ify
                     textBox2.Text = Globals.OGPATH + "\\" + Globals.fileNameNoExt + "_enc" + Globals.fileExt;
                     if (Globals.OGPATH.Contains("store\\3a981f5cb2739137\\"))
                     {
+                        string[] legacythemes = { "akon", "ben10", "bunny", "cctoonadventure", "chowder", "domo", "monkeytalk", "sf", "startrek", "toonadv", "underdog", "willie" };
+                        if (legacythemes.Any(Globals.OGPATH.Contains))
+                        {
+                            comboBox1.Text = "g0o1a2n3i4m5a6t7e";
+                        }
+                        else
+                        {
+                            comboBox1.Text = "sorrypleasetryagainlater";
+                        }
                         checkBox1.Checked = true;
                         textBox3.Visible = false;
                         comboBox1.Visible = true;
@@ -63,19 +72,14 @@ namespace RC4ify
             {
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
-                    textBox3.Text = folderBrowserDialog.SelectedPath + "\\" + Globals.fileNameNoExt + "_enc" + Globals.fileExt;
+                    textBox2.Text = folderBrowserDialog.SelectedPath + "\\" + Globals.fileNameNoExt + "_RC4" + Globals.fileExt;
                 }
             }
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
-            Encrypt();
-        }
-
-        private void button4_Click(object sender, EventArgs e)
-        {
-            Decrypt();
+            CheckForErrors();
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
@@ -92,7 +96,24 @@ namespace RC4ify
             }
         }
 
-        public void Encrypt()
+        public void CheckForErrors()
+        {
+            if (textBox1.Text == "")
+            {
+                MessageBox.Show("ERROR: No input asset file specified.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            if (textBox1.Text.Contains(".swf") == false)
+            {
+                MessageBox.Show("ERROR: Incompatible format. Only *.swf files are supported.", "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                StartRC4();
+            }
+        }
+
+public void StartRC4()
         {
             Globals.filePath = textBox1.Text;
             Globals.OUTPUTPATH = textBox2.Text;
@@ -109,27 +130,7 @@ namespace RC4ify
             byte[] key = Encoding.UTF8.GetBytes(key_phrase);
             byte[] encrypted_data = RC4.Apply(data, key);
             System.IO.File.WriteAllBytes(Globals.OUTPUTPATH, encrypted_data);
-            MessageBox.Show("Encryption successfully completed!", "Encryption Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
-        }
-
-        public void Decrypt()
-        {
-            Globals.filePath = textBox1.Text;
-            Globals.OUTPUTPATH = textBox2.Text;
-            string key_phrase = "";
-            if (checkBox1.Checked == true)
-            {
-                key_phrase = comboBox1.Text;
-            }
-            else
-            {
-                key_phrase = textBox3.Text;
-            }
-            byte[] data = File.ReadAllBytes(Globals.filePath);
-            byte[] key = Encoding.UTF8.GetBytes(key_phrase);
-            byte[] decrypted_data = RC4.Apply(data, key);
-            System.IO.File.WriteAllBytes(Globals.OUTPUTPATH, decrypted_data);
-            MessageBox.Show("Decryption successfully completed!", "Decryption Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("RC4 process successfully completed!", "RC4 Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
     }
 }
