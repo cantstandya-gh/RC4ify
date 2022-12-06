@@ -7,5 +7,5 @@ This is a GUI version of my RC4ify CLI program, which contains just about the ex
 
 ![The GUI](https://i.imgur.com/A7zZVAk.png)
 
-**IMPORTANT**
-Do **NOT** download from the Code button! Instead, for the pre-built release binary, go to the latest releases section!
+#### IMPORTANT!!!
+Do **NOT** download from the Code button! Instead, for the pre-built release binary, go to the latest release link [here](https://github.com/ksalisbury-gh/RC4ify-GUI/releases/latest)!
