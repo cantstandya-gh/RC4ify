@@ -4,15 +4,21 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
-    <ApplicationIcon>RC4ify-GUI.ico</ApplicationIcon>
+    <ApplicationIcon>RC4ify.ico</ApplicationIcon>
+    <PackageProjectUrl>https://github.com/ksalisbury-gh/RC4ify</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/ksalisbury-gh/RC4ify</RepositoryUrl>
   </PropertyGroup>
 
   <ItemGroup>
-    <Content Include="RC4ify-GUI.ico" />
+    <Content Include="RC4ify.ico" />
   </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="RC4Cryptography" Version="1.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Properties\" />
   </ItemGroup>
 
 </Project>
