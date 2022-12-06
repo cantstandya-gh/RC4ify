@@ -4,7 +4,12 @@
     <OutputType>WinExe</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <UseWindowsForms>true</UseWindowsForms>
+    <ApplicationIcon>RC4ify-GUI.ico</ApplicationIcon>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Content Include="RC4ify-GUI.ico" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="RC4Cryptography" Version="1.0.1" />
