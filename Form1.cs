@@ -27,6 +27,7 @@ namespace RC4ify
             public static String fileName = "";
             public static String fileNameNoExt = "";
             public static String fileExt = "";
+            public static String DefaultOutputPath = "";
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -45,8 +46,9 @@ namespace RC4ify
                     Globals.fileExt = Path.GetExtension(Globals.filePath);
                     Globals.OGPATH = Path.GetDirectoryName(Globals.filePath);
                     Globals.fileNameNoExt = Path.GetFileNameWithoutExtension(Globals.filePath);
+                    Globals.DefaultOutputPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + "\\RC4ify\\Decrypted";
                     textBox1.Text = Globals.filePath;
-                    textBox2.Text = Globals.OGPATH + "\\" + Globals.fileNameNoExt + "_RC4" + Globals.fileExt;
+                    textBox2.Text = Globals.DefaultOutputPath + "\\" + Globals.fileName;
                     if (Globals.OGPATH.Contains("store\\3a981f5cb2739137\\"))
                     {
                         string[] legacythemes = 
@@ -86,7 +88,7 @@ namespace RC4ify
             {
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
-                    textBox2.Text = folderBrowserDialog.SelectedPath + "\\" + Globals.fileNameNoExt + "_RC4" + Globals.fileExt;
+                    textBox2.Text = folderBrowserDialog.SelectedPath + "\\" + Globals.fileName;
                 }
             }
         }
@@ -139,6 +141,13 @@ public void StartRC4()
             else
             {
                 key_phrase = textBox3.Text;
+            }
+            if (textBox2.Text.Contains("\\Documents\\RC4ify\\Decrypted"))
+            {
+                if ((Directory.Exists(Globals.DefaultOutputPath)) == false)
+                {
+                    Directory.CreateDirectory(Globals.DefaultOutputPath);
+                }
             }
             byte[] data = File.ReadAllBytes(Globals.filePath);
             byte[] key = Encoding.UTF8.GetBytes(key_phrase);
