@@ -1,11 +1,9 @@
-## RC4ify-GUI
-RC4ify-GUI is a C# program that encrypts/decrypts any file with RC4 using any specified key.
+## RC4ify
+RC4ify is a C# program that encrypts/decrypts any file with RC4 using any specified key.
 
-For LVM assets, there's a checkmark and dropdown option for that.
+For LVM assets, there's a checkmark and dropdown option for that. It'll automatically detect if it's an LVM asset though.
 
-This is a GUI version of my RC4ify CLI program, which contains just about the exact same code and premise.
-
-![The GUI](https://i.imgur.com/A7zZVAk.png)
+![The GUI](https://i.imgur.com/OiTvcot.png)
 
 #### IMPORTANT!!!
-Do **NOT** download from the Code button! Instead, for the pre-built release binary, go to the latest release link [here](https://github.com/ksalisbury-gh/RC4ify-GUI/releases/latest)!
+Do **NOT** download from the Code button! Instead, for the pre-built release binary, go to the latest release link [here](https://github.com/ksalisbury-gh/RC4ify/releases/latest)!
