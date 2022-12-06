@@ -185,7 +185,7 @@ namespace RC4ify
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 15);
             this.label5.TabIndex = 14;
-            this.label5.Text = "0.1.5";
+            this.label5.Text = "0.1.52";
             // 
             // label6
             // 

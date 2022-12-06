@@ -46,10 +46,24 @@ namespace RC4ify
                     Globals.OGPATH = Path.GetDirectoryName(Globals.filePath);
                     Globals.fileNameNoExt = Path.GetFileNameWithoutExtension(Globals.filePath);
                     textBox1.Text = Globals.filePath;
-                    textBox2.Text = Globals.OGPATH + "\\" + Globals.fileNameNoExt + "_enc" + Globals.fileExt;
+                    textBox2.Text = Globals.OGPATH + "\\" + Globals.fileNameNoExt + "_RC4" + Globals.fileExt;
                     if (Globals.OGPATH.Contains("store\\3a981f5cb2739137\\"))
                     {
-                        string[] legacythemes = { "akon", "ben10", "bunny", "cctoonadventure", "chowder", "domo", "monkeytalk", "sf", "startrek", "toonadv", "underdog", "willie" };
+                        string[] legacythemes = 
+                        { 
+                            "akon", 
+                            "ben10", 
+                            "bunny", 
+                            "cctoonadventure", 
+                            "chowder", 
+                            "domo", 
+                            "monkeytalk", 
+                            "sf", 
+                            "startrek", 
+                            "toonadv", 
+                            "underdog", 
+                            "willie" 
+                        };
                         if (legacythemes.Any(Globals.OGPATH.Contains))
                         {
                             comboBox1.Text = "g0o1a2n3i4m5a6t7e";
