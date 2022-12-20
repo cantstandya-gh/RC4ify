@@ -186,7 +186,7 @@ namespace RC4ify
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 14;
-            this.label5.Text = "v0.1.53";
+            this.label5.Text = "v0.1.54";
             // 
             // label6
             // 
@@ -194,9 +194,9 @@ namespace RC4ify
             this.label6.ForeColor = System.Drawing.SystemColors.HighlightText;
             this.label6.Location = new System.Drawing.Point(12, 411);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(242, 15);
+            this.label6.Size = new System.Drawing.Size(265, 15);
             this.label6.TabIndex = 15;
-            this.label6.Text = "Written with <3 in Chicagoland by Keegan S.";
+            this.label6.Text = "Written with <3 in NW Chicagoland by Keegan S.";
             // 
             // Form1
             // 
@@ -220,7 +220,7 @@ namespace RC4ify
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "RC4ify v0.1.53";
+            this.Text = "RC4ify v0.1.54";
             this.ResumeLayout(false);
             this.PerformLayout();
 
