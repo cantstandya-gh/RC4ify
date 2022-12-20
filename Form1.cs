@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -9,6 +10,8 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.IO;
 using RC4Cryptography;
+using System.Reflection;
+using System.Net.NetworkInformation;
 
 namespace RC4ify
 {
@@ -183,7 +186,30 @@ public void StartRC4()
             {
                 if (Globals.filePath.Contains(".swf"))
                 {
-                    MessageBox.Show("You won't get the sound file directly from the *.swf as it's embedded into a sort of controller.\n\nYou will need to use a Flash decompiling software such as FFDec or SoThink SWF Decompiler to retrieve the audio file from the decrypted *.swf file.\n\nI plan on finding a workaround to this in a later update. ~Keegan", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    // MessageBox.Show("You won't get the sound file directly from the *.swf as it's embedded into a sort of controller.\n\nYou will need to use a Flash decompiling software such as FFDec or SoThink SWF Decompiler to retrieve the audio file from the decrypted *.swf file.\n\nI plan on finding a workaround to this in a later update. ~Keegan", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    if (!Environment.GetEnvironmentVariable("PATH").Contains("\\Oracle\\Java"))
+                    {
+                        if (MessageBox.Show("ERROR: I can't extract the audio file from the *.swf with FFDec because I couldn't find the path to the Java Runtime Environment, which is required in order for FFDec to work.\n\nWould you like to visit the Java website to download the runtime environment so you can manually extract the audio later?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
+                        {
+                            Process.Start("https://www.oracle.com/java/technologies/downloads/#jdk19-windows");
+                        }
+                        else
+                        {
+                            MessageBox.Show("Alright, if you already have a SWF decompiling software by now, just go from there.\n\nI'll finish the RC4 process anyways.");
+                        }
+                    }
+                    else
+                    {
+                        ProcessStartInfo startInfo = new ProcessStartInfo();
+                        startInfo.FileName = Directory.GetCurrentDirectory() + "\\prerequisites\\ffdec\\conv.bat";
+                        startInfo.Arguments = Globals.OUTPUTPATH;
+                        startInfo.UseShellExecute = false;
+                        startInfo.CreateNoWindow = true;
+                        startInfo.WindowStyle = ProcessWindowStyle.Hidden;
+                        startInfo.RedirectStandardOutput = true;
+                        Process ffdec = Process.Start(startInfo);
+                        richTextBox1.Text = ffdec.StandardOutput.ReadToEnd();
+                    }               
                 }
             }
             MessageBox.Show("RC4 process successfully completed!", "RC4 Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
