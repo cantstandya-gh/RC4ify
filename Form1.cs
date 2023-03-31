@@ -186,19 +186,6 @@ public void StartRC4()
             {
                 if (Globals.filePath.Contains(".swf"))
                 {
-                    // MessageBox.Show("You won't get the sound file directly from the *.swf as it's embedded into a sort of controller.\n\nYou will need to use a Flash decompiling software such as FFDec or SoThink SWF Decompiler to retrieve the audio file from the decrypted *.swf file.\n\nI plan on finding a workaround to this in a later update. ~Keegan", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    if (!Environment.GetEnvironmentVariable("PATH").Contains("\\Oracle\\Java"))
-                    {
-                        if (MessageBox.Show("ERROR: I can't extract the audio file from the *.swf with FFDec because I couldn't find the path to the Java Runtime Environment, which is required in order for FFDec to work.\n\nWould you like to visit the Java website to download the runtime environment so you can manually extract the audio later?", "Info", MessageBoxButtons.YesNo, MessageBoxIcon.Information) == DialogResult.Yes)
-                        {
-                            Process.Start("https://www.oracle.com/java/technologies/downloads/#jdk19-windows");
-                        }
-                        else
-                        {
-                            MessageBox.Show("Alright, if you already have a SWF decompiling software by now, just go from there.\n\nI'll finish the RC4 process anyways.");
-                        }
-                    }
-                    else
                     {
                         ProcessStartInfo startInfo = new ProcessStartInfo();
                         startInfo.FileName = Directory.GetCurrentDirectory() + "\\prerequisites\\ffdec\\conv.bat";
@@ -212,7 +199,14 @@ public void StartRC4()
                     }               
                 }
             }
-            MessageBox.Show("RC4 process successfully completed!", "RC4 Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (richTextBox1.Text.Contains("You're on your own."))
+            {
+                MessageBox.Show("ERROR: The Java Runtime Environment failed to install, which is required for audio decryption to work as it uses FFDec.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            else
+            {
+                MessageBox.Show("RC4 process successfully completed!", "RC4 Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
     }
 }

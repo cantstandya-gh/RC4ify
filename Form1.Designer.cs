@@ -188,7 +188,7 @@ namespace RC4ify
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(43, 15);
             this.label5.TabIndex = 14;
-            this.label5.Text = "v0.1.60";
+            this.label5.Text = "v0.1.61";
             // 
             // label6
             // 
@@ -244,7 +244,7 @@ namespace RC4ify
             this.Controls.Add(this.label1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
-            this.Text = "RC4ify v0.1.60";
+            this.Text = "RC4ify v0.1.61";
             this.ResumeLayout(false);
             this.PerformLayout();
 
